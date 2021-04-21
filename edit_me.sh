@@ -35,14 +35,17 @@ printf "
  |_____|   \ V  V /   | |_| | | |_| | | |_| |   
             \_/\_/     \___/   \___/  |____/    
                                                 
-
+by Telegram @dsashwin, many thanks to @Iprouteth0 for the scripts
+if does not work please contact us at the group link given on the github readme.md 
 \n\n\n\n"
+
+
 echo "Enter sync link, for example \"https://github.com/PotatoProject/manifest -b dumaloo-release\""
 read ROMGIT
 SOURCEFILE=Android.bp
 echo "Enter ROM Name used for build, for example \"potato\""
 read ROMNAME
-echo "Enter ROMs Vendor Directory Name, for example \"potato\""
+echo "Enter ROMs Vendor Directory Name, for example \"potato\" in most cases it should be same as what was used for build, but some roms like Nusantara uses Nusantara as name for vendor folder and nad for building"
 read ROMBUILD
 echo "Enter ROM build command (including device codename) copy paste from github of the ROM, for example \"mka bacon\""
 read MAKECOM
