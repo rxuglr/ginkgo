@@ -1,1 +1,1 @@
-. edit_me.sh
+. full.sh

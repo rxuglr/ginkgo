@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <project name="Aghora7/device_xiaomi_olivewood-1" path="device/xiaomi/olivewood" remote="github" revision="evo11" />
-  <project name="Xiaomi-SDM439-Development/android_device_xiaomi_sdm439" path="device/xiaomi/sdm439-common" remote="github" revision="lineage-18.1"/>
-  <project name="Aghora7/vendor_xiaomi_olivewood" path="vendor/xiaomi/olivewood" remote="github" revision="main" />
+  <project name="Aghora7/device_xiaomi_sdm439-common-1" path="device/xiaomi/sdm439-common" remote="github" revision="evo11-wip"/>
+  <project name="Aghora7/vendor_xiaomi_olivewood_32" path="vendor/xiaomi/olivewood" remote="github" revision="ten" />
   <project name="Xiaomi-SDM439-Development/android_kernel_xiaomi_sdm439" path="kernel/xiaomi/sdm439" remote="github" revision="a11/master" />
-  <project name="Evolution-X-Devices/vendor_xiaomi" path="vendor/xiaomi" remote="github" revision="elle" />
-  <project name="Stargazer19/hardware_qcom_display-caf-msm8937" path="hardware/qcom-caf/msm8937/display" remote="github" revision="pie-caf-8937" />
-  <project name="Stargazer19/hardware_qcom_media-caf-msm8937" path="hardware/qcom-caf/msm8937/media" remote="github" revision="pie-caf-8937" />
-  <project name="Stargazer19/hardware_qcom_audio-caf-msm8937" path="hardware/qcom-caf/msm8937/audio" remote="github" revision="pie-caf-8937" />
 </manifest>
