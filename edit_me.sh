@@ -7,12 +7,42 @@
 #ROMNAME=cygnus
 #ROMBUILD=cygnus
 
-echo "Enter sync link"
+
+printf "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+printf "
+
+   ___    _   _   _      __   __                
+  / _ \  | \ | | | |     \ \ / /                
+ | | | | |  \| | | |      \ V /                 
+ | |_| | | |\  | | |___    | |                  
+  \___/  |_| \_| |_____|   |_|                  
+                                                
+  _____    ___    ____                          
+ |  ___|  / _ \  |  _ \                         
+ | |_    | | | | | |_) |                        
+ |  _|   | |_| | |  _ <                         
+ |_|      \___/  |_| \_\                        
+                                                
+   ___    _       ___  __     __  _____         
+  / _ \  | |     |_ _| \ \   / / | ____|        
+ | | | | | |      | |   \ \ / /  |  _|    _____ 
+ | |_| | | |___   | |    \ V /   | |___  |_____|
+  \___/  |_____| |___|    \_/    |_____|        
+                                                
+         __        __   ___     ___    ____     
+         \ \      / /  / _ \   / _ \  |  _ \    
+  _____   \ \ /\ / /  | | | | | | | | | | | |   
+ |_____|   \ V  V /   | |_| | | |_| | | |_| |   
+            \_/\_/     \___/   \___/  |____/    
+                                                
+
+\n\n\n\n"
+echo "Enter sync link, for example \"https://github.com/PotatoProject/manifest -b dumaloo-release\""
 read ROMGIT
 SOURCEFILE=Android.bp
-echo "Enter ROM Name"
+echo "Enter ROM Name, for example \"potato\""
 read ROMNAME
-echo "Enter ROM Build"
+echo "Enter ROM Build, for example \"potato\""
 read ROMBUILD
 
 VENDOR_CONFIG=$ROMNAME
