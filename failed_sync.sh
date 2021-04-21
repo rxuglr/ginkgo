@@ -35,5 +35,5 @@ export USE_CCACHE=1
 export LC_ALL=C
 export WITHOUT_CHECK_API=true
 #time brunch olivewood
-brunch $ROMNAME/_olivewood-userdebug -j$(nproc --ignore=8)
+brunch $ROMNAME\_olivewood-userdebug -j$(nproc --ignore=8)
 
