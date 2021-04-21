@@ -40,9 +40,7 @@ echo "Enter ROMs Vendor Directory Name, for example \"potato\" in most cases it 
 read VENDOR_CONFIG
 echo "Enter ROM build command (including device codename) copy paste from github of the ROM, for example \"mka bacon\""
 read MAKECOM
-
 PATH_DIR=$ROMNAME"_olivewood"
-
 cd .. 
 #Make work directory if not present
 if [[ ! -d "$PATH_DIR/.repo" ]] 
