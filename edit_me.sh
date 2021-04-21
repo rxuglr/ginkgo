@@ -40,14 +40,14 @@ printf "
 echo "Enter sync link, for example \"https://github.com/PotatoProject/manifest -b dumaloo-release\""
 read ROMGIT
 SOURCEFILE=Android.bp
-echo "Enter ROM Name, for example \"potato\""
+echo "Enter ROM Name used for build, for example \"potato\""
 read ROMNAME
-echo "Enter ROM Build, for example \"potato\""
+echo "Enter ROMs Vendor Directory Name, for example \"potato\""
 read ROMBUILD
 echo "Enter ROM build command (including device codename) copy paste from github of the ROM, for example \"mka bacon\""
 read MAKECOM
 
-VENDOR_CONFIG=$ROMNAME
+VENDOR_CONFIG=$ROMBUILD
 PATH_DIR=$ROMNAME"_olivewood"
 
 cd .. 
