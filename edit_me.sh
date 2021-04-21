@@ -7,6 +7,7 @@
 #ROMNAME=cygnus
 #ROMBUILD=cygnus
 
+printf "\n\n\n"
 echo "Enter sync link"
 read ROMGIT
 SOURCEFILE=Android.bp
