@@ -44,6 +44,8 @@ echo "Enter ROM Name, for example \"potato\""
 read ROMNAME
 echo "Enter ROM Build, for example \"potato\""
 read ROMBUILD
+echo "Enter ROM build command (including device codename) copy paste from github of the ROM, for example \"mka bacon\""
+read MAKECOM
 
 VENDOR_CONFIG=$ROMNAME
 PATH_DIR=$ROMNAME"_olivewood"
@@ -85,7 +87,7 @@ export LC_ALL=C
 export WITHOUT_CHECK_API=true
 #time brunch olivewood
 lunch $ROMNAME\_olivewood-userdebug 
-mka bacon | tee build_log.txt
+$MAKECOM -j$(nproc --all) | tee build_log.txt
 
 ## Build section sequence B
 else
@@ -96,5 +98,5 @@ export LC_ALL=C
 export WITH_CHECK_API=true
 #time brunch olivewood
 lunch $ROMNAME\_olivewood-userdebug 
-mka bacon | tee build_log.txt
+$MAKECOM -j$(nproc --all) | tee build_log.txt
 fi

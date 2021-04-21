@@ -2,6 +2,8 @@ echo "Enter ROM Name"
 read ROMNAME
 echo "Enter ROM Build"
 read ROMBUILD
+echo "Enter ROM build command (including device codename) copy paste from github of the ROM, for example \"mka bacon\""
+read MAKECOM
 
 VENDOR_CONFIG=$ROMNAME
 PATH_DIR=$ROMNAME"_olivewood"
@@ -27,4 +29,4 @@ export LC_ALL=C
 export WITHOUT_CHECK_API=true
 #time brunch olivewood
 lunch $ROMNAME\_olivewood-userdebug 
-mka bacon | tee build_log.txt
+$MAKECOM -j$(nproc --all) | tee build_log.txt
