@@ -4,7 +4,7 @@
 
 Run the below on your home directory and follow instructions shown! 
 ```
-git clone https://github.com/geek0609/olivewood.git && cd olivewood && . run.sh
+git clone https://github.com/geek0609/olivewood.git -b simplified && cd olivewood && . run.sh
 ```
 
 Before you start building any ROM, make sure you have all the dependancies
