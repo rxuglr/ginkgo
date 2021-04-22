@@ -43,3 +43,13 @@ export WITHOUT_CHECK_API=true
 #time brunch olivewood
 lunch $ROMNAME\_olivewood-userdebug 
 $MAKECOM | tee build_log.txt
+cd .. 
+cd olivewood
+echo "Type . run.sh to build another rom!"
+printf "\n"
+echo "Type . buildonly.sh to only build again, incase of buid errors!"
+printf "\n"
+echo "Type . only_modify_and_build.sh to repo sync, modify and build again, incase of sync error!"
+printf "\n"
+echo "type . updater.sh to update the ROM build files and run again"
+echo "Refer github.com/geek0609/olivewood for Telegram group link to report issues"

@@ -54,6 +54,7 @@ repo sync -j$(nproc --all) --force-sync -f
 #recheck
 repo sync -j$(nproc --all) --force-sync -f
 ## match device tree files to rom tree
+mv device/xiaomi/sdm439-common/lineage.dependencies device/xiaomi/sdm439-common/$ROMNAME.dependencies 
 echo "TARGET_KERNEL_CLANG_COMPILE=true" >> device/xiaomi/olivewood/BoardConfig.mk
 mv device/xiaomi/olivewood/lineage_olivewood.mk device/xiaomi/olivewood/$ROMNAME\_olivewood.mk
 sed -i "s|vendor/lineage/config|vendor/$VENDOR_CONFIG/config|" device/xiaomi/olivewood/$ROMNAME\_olivewood.mk
@@ -69,4 +70,14 @@ export WITHOUT_CHECK_API=true
 
 #Brunch olivewood
 lunch $ROMNAME\_olivewood-userdebug 
-$MAKECOM -j$(nproc --all) | tee build_log.txt
+$MAKECOM | tee build_log.txt
+cd .. 
+cd olivewood
+echo "Type . run.sh to build another rom!"
+printf "\n"
+echo "Type . buildonly.sh to only build again, incase of buid errors!"
+printf "\n"
+echo "Type . only_modify_and_build.sh to repo sync, modify and build again, incase of sync error!"
+printf "\n"
+echo "type . updater.sh to update the ROM build files and run again"
+echo "Refer github.com/geek0609/olivewood for Telegram group link to report issues"

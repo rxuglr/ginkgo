@@ -39,6 +39,7 @@ read ROMNAME
 echo "Enter ROMs Vendor Directory Name, for example \"potato\" in most cases it should be same as what was used for build, but some roms like Nusantara uses Nusantara as name for vendor folder and nad for building"
 read VENDOR_CONFIG
 echo "Enter ROM build command (including device codename) copy paste from github of the ROM, for example \"mka bacon\""
+echo "However, lunch $ROMNAME\_olivewood-userdebug will be run."
 read MAKECOM
 
 PATH_DIR=$ROMNAME"_olivewood"
@@ -63,6 +64,7 @@ repo sync -j$(nproc --all) --force-sync -f
 #recheck
 repo sync -j$(nproc --all) --force-sync -f
 ## match device tree files to rom tree
+mv device/xiaomi/sdm439-common/lineage.dependencies device/xiaomi/sdm439-common/$ROMNAME.dependencies 
 echo "TARGET_KERNEL_CLANG_COMPILE=true" >> device/xiaomi/olivewood/BoardConfig.mk
 mv device/xiaomi/olivewood/lineage_olivewood.mk device/xiaomi/olivewood/$ROMNAME\_olivewood.mk
 sed -i "s|vendor/lineage/config|vendor/$VENDOR_CONFIG/config|" device/xiaomi/olivewood/$ROMNAME\_olivewood.mk
@@ -81,4 +83,11 @@ lunch $ROMNAME\_olivewood-userdebug
 $MAKECOM | tee build_log.txt
 cd .. 
 cd olivewood
-echo "Type . run.sh to build again!"
+echo "Type . run.sh to build another rom!"
+printf "\n"
+echo "Type . buildonly.sh to only build again, incase of buid errors!"
+printf "\n"
+echo "Type . only_modify_and_build.sh to repo sync, modify and build again, incase of sync error!"
+printf "\n"
+echo "type . updater.sh to update the ROM build files and run again"
+echo "Refer github.com/geek0609/olivewood for Telegram group link to report issues"

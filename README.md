@@ -3,8 +3,9 @@
 
 
 Run the below on your home directory and follow instructions shown! 
+NOTE: THIS WILL REMOVE ANY FOLDER NAMED OLIVEWOOD
 ```
-git clone https://github.com/geek0609/olivewood.git -b simplified && cd olivewood && . run.sh
+rm -rf olivewood && git clone https://github.com/geek0609/olivewood.git -b simplified && cd olivewood && . run.sh
 ```
 
 Refer to [***Tutorial***](https://github.com/geek0609/olivewood/wiki/Tutorial) for in-depth explaination.
@@ -18,7 +19,6 @@ _To make another ROM, consider deleting the "olivewood" folder and re-run the gi
 
 ```
 You must have prior ROM building experience, an inexperienced person using this is NOT recommended.
-
 You may wish to use your own Local_manifest.xml file if you feel mine doesn't work.
 ```
 
