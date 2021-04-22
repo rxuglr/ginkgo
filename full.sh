@@ -39,7 +39,7 @@ read ROMNAME
 echo "Enter ROMs Vendor Directory Name, for example \"potato\" in most cases it should be same as what was used for build, but some roms like Nusantara uses Nusantara as name for vendor folder and nad for building"
 read VENDOR_CONFIG
 echo "Enter ROM build command (including device codename) copy paste from github of the ROM, for example \"mka bacon\""
-echo "However, lunch $ROMNAME\_olivewood-userdebug will be run."
+echo "However, lunch" $ROMNAME"_olivewood-userdebug will be run."
 read MAKECOM
 
 PATH_DIR=$ROMNAME"_olivewood"
@@ -51,7 +51,7 @@ then
 mkdir $PATH_DIR
 cd $PATH_DIR
 repo init -u $ROMGIT 
-repo sync -j$(nproc --all) --force-sync -f
+repo sync -f -j$(nproc --all) --force-sync
 cp olivewood/roomservice.xml $PATH_DIR/roomservice.xml 
 else 
 cp olivewood/roomservice.xml $PATH_DIR/roomservice.xml
@@ -84,6 +84,8 @@ $MAKECOM | tee build_log.txt
 cd .. 
 cd olivewood
 echo "Type . run.sh to build another rom!"
+printf "\n"
+echo "Type . cleaner.sh to clean files!"
 printf "\n"
 echo "Type . buildonly.sh to only build again, incase of buid errors!"
 printf "\n"
