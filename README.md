@@ -7,6 +7,8 @@ Run the below on your home directory and follow instructions shown!
 git clone https://github.com/geek0609/olivewood.git -b simplified && cd olivewood && . run.sh
 ```
 
+Refer to [***Tutorial***](https://github.com/geek0609/olivewood/wiki/Tutorial) for in-depth explaination.
+
 Before you start building any ROM, make sure you have all the dependancies
 ```
 wget https://raw.githubusercontent.com/akhilnarang/scripts/master/setup/android_build_env.sh && bash android*
