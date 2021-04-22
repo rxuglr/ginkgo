@@ -32,8 +32,6 @@ If does not work please contact us at the group link given on the github readme.
 \n\n\n\n"
 
 #Get values
-echo "Enter sync link, for example \"https://github.com/PotatoProject/manifest -b dumaloo-release\""
-read ROMGIT
 SOURCEFILE=Android.bp
 echo "Enter ROM Name used for build, for example \"potato\""
 read ROMNAME
@@ -52,9 +50,9 @@ mkdir .repo/local_manifests
 rm .repo/local_manifests/local_manifest.xml
 mv roomservice.xml .repo/local_manifests/local_manifest.xml
 
-repo sync -j$(nproc --all) --force-sync
+repo sync -j$(nproc --all) --force-sync -f
 #recheck
-repo sync -j$(nproc --all) --force-sync
+repo sync -j$(nproc --all) --force-sync -f
 ## match device tree files to rom tree
 echo "TARGET_KERNEL_CLANG_COMPILE=true" >> device/xiaomi/olivewood/BoardConfig.mk
 mv device/xiaomi/olivewood/lineage_olivewood.mk device/xiaomi/olivewood/$ROMNAME\_olivewood.mk

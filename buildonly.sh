@@ -42,4 +42,4 @@ export LC_ALL=C
 export WITHOUT_CHECK_API=true
 #time brunch olivewood
 lunch $ROMNAME\_olivewood-userdebug 
-$MAKECOM -j$(nproc --all) | tee build_log.txt
+$MAKECOM | tee build_log.txt

@@ -28,7 +28,7 @@ printf "
                                                 
 by Telegram @dsashwin, many thanks to @Iprouteth0 for the scripts and to @Aghora7 for all his trees
 If does not work please contact us at the group link given on the github readme.md 
-\n\n\n\n"
+\n\n\n\n\n\n\n"
 
 #Get values
 echo "Enter sync link, for example \"https://github.com/PotatoProject/manifest -b dumaloo-release\""
@@ -50,7 +50,7 @@ then
 mkdir $PATH_DIR
 cd $PATH_DIR
 repo init -u $ROMGIT 
-repo sync -j$(nproc --all) --force-sync
+repo sync -j$(nproc --all) --force-sync -f
 cp olivewood/roomservice.xml $PATH_DIR/roomservice.xml 
 else 
 cp olivewood/roomservice.xml $PATH_DIR/roomservice.xml
@@ -59,9 +59,9 @@ fi
 mkdir .repo/local_manifests
 rm .repo/local_manifests/local_manifest.xml
 mv roomservice.xml .repo/local_manifests/local_manifest.xml
-repo sync -j$(nproc --all) --force-sync
+repo sync -j$(nproc --all) --force-sync -f
 #recheck
-repo sync -j$(nproc --all) --force-sync 
+repo sync -j$(nproc --all) --force-sync -f
 ## match device tree files to rom tree
 echo "TARGET_KERNEL_CLANG_COMPILE=true" >> device/xiaomi/olivewood/BoardConfig.mk
 mv device/xiaomi/olivewood/lineage_olivewood.mk device/xiaomi/olivewood/$ROMNAME\_olivewood.mk
@@ -78,7 +78,7 @@ export WITHOUT_CHECK_API=true
 
 #Brunch olivewood
 lunch $ROMNAME\_olivewood-userdebug 
-$MAKECOM -j$(nproc --all) | tee build_log.txt
+$MAKECOM | tee build_log.txt
 cd .. 
 cd olivewood
 echo "Type . run.sh to build again!"
