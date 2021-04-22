@@ -1,3 +1,4 @@
+.sh
 #! /bin/bash
 printf "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
 printf "
@@ -44,24 +45,16 @@ read MAKECOM
 PATH_DIR=$ROMNAME"_olivewood"
 
 cd .. 
-#Make work directory if not present
-if [[ ! -d "$PATH_DIR/.repo" ]] 
-then
-mkdir $PATH_DIR
-cd $PATH_DIR
-repo init -u $ROMGIT 
-repo sync -j$(nproc --all) --force-sync
-cp olivewood/roomservice.xml $PATH_DIR/roomservice.xml 
-else 
 cp olivewood/roomservice.xml $PATH_DIR/roomservice.xml
 cd $PATH_DIR
-fi
+
 mkdir .repo/local_manifests
 rm .repo/local_manifests/local_manifest.xml
 mv roomservice.xml .repo/local_manifests/local_manifest.xml
+
 repo sync -j$(nproc --all) --force-sync
 #recheck
-repo sync -j$(nproc --all) --force-sync 
+repo sync -j$(nproc --all) --force-sync
 ## match device tree files to rom tree
 echo "TARGET_KERNEL_CLANG_COMPILE=true" >> device/xiaomi/olivewood/BoardConfig.mk
 mv device/xiaomi/olivewood/lineage_olivewood.mk device/xiaomi/olivewood/$ROMNAME\_olivewood.mk
@@ -79,6 +72,3 @@ export WITHOUT_CHECK_API=true
 #Brunch olivewood
 lunch $ROMNAME\_olivewood-userdebug 
 $MAKECOM -j$(nproc --all) | tee build_log.txt
-cd .. 
-cd olivewood
-echo "Type . run.sh to build again!"
