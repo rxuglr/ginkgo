@@ -16,7 +16,11 @@ wget https://raw.githubusercontent.com/akhilnarang/scripts/master/setup/android_
 
 _To make another ROM, consider deleting the "olivewood" folder and re-run the git clone because I maybe constanly updating these until I attain perfection. Don't forget to keep giving me suggestions and report issues in my script!!_
 
+```
+You must have prior ROM building experience, an inexperienced person using this is NOT recommended.
 
+You may wish to use your own Local_manifest.xml file if you feel mine doesn't work.
+```
 
 If you have any issues or doubts, ask other fellow developers or me on [**telegram**](https://t.me/olivewood_devs). You can tag me @dsashwin!!
 
