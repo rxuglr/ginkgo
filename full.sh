@@ -50,9 +50,11 @@ if [[ ! -d "$PATH_DIR/.repo" ]]
 then
 mkdir $PATH_DIR
 cd $PATH_DIR
-repo init -u $ROMGIT 
-repo sync -f -j$(nproc --all) --force-sync
+repo init --depth=1 -u $ROMGIT 
+repo sync -f -j$(nproc --all) --force-sync -c
+cd ..
 cp olivewood/roomservice.xml $PATH_DIR/roomservice.xml 
+cd $PATH_DIR
 else 
 cp olivewood/roomservice.xml $PATH_DIR/roomservice.xml
 cd $PATH_DIR
