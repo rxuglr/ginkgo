@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
+  <remote  name="github"
+           fetch="https://github.com/"/>
   <project name="Aghora7/device_xiaomi_olivewood-1" path="device/xiaomi/olivewood" remote="github" revision="evo11" />
   <project name="Aghora7/device_xiaomi_sdm439-common-1" path="device/xiaomi/sdm439-common" remote="github" revision="evo11-wip"/>
   <project name="Aghora7/vendor_xiaomi_olivewood_32" path="vendor/xiaomi/olivewood" remote="github" revision="ten" />
