@@ -62,6 +62,11 @@ sed -i "s|lineage|$ROMNAME|" device/xiaomi/olivewood/$ROMNAME\_olivewood.mk
 sed -i "s|lineage|$ROMNAME|" device/xiaomi/olivewood/AndroidProducts.mk
 echo "WITH_GAPPS := true" >> device/xiaomi/olivewood/$ROMNAME\_olivewood.mk
 
+if [[ ! -f "vendor/$VENDOR_CONFIG/config/common_full_phone.mk" ]]
+then
+    mv vendor/$VENDOR_CONFIG/config/common.mk vendor/$VENDOR_CONFIG/config/common_full_phone.mk
+fi
+
 ## Build section
 . build/envsetup.sh
 export USE_CCACHE=1

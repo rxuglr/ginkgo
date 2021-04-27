@@ -50,8 +50,8 @@ if [[ ! -d "$PATH_DIR/.repo" ]]
 then
 mkdir $PATH_DIR
 cd $PATH_DIR
-repo init --depth=1 -u $ROMGIT 
-repo sync -f -j$(nproc --all) --force-sync -c
+repo init --depth=1 -v -u $ROMGIT  
+repo sync -v -f -j$(nproc --all) --force-sync -c --no-clone-bundle --no-tags --optimized-fetch
 cd ..
 cp olivewood/roomservice.xml $PATH_DIR/roomservice.xml 
 cd $PATH_DIR
@@ -62,7 +62,7 @@ fi
 mkdir .repo/local_manifests
 rm .repo/local_manifests/local_manifest.xml
 mv roomservice.xml .repo/local_manifests/local_manifest.xml
-repo sync -j$(nproc --all) --force-sync -f
+repo sync -j$(nproc --all) --force-sync -f -v
 #recheck
 repo sync -j$(nproc --all) --force-sync -f
 ## match device tree files to rom tree
@@ -74,6 +74,11 @@ sed -i "s|lineage|$ROMNAME|" device/xiaomi/olivewood/$ROMNAME\_olivewood.mk
 sed -i "s|lineage|$ROMNAME|" device/xiaomi/olivewood/AndroidProducts.mk
 echo "WITH_GAPPS := true" >> device/xiaomi/olivewood/$ROMNAME\_olivewood.mk
 
+if [[ ! -f "vendor/$VENDOR_CONFIG/configs/common_full_phone.mk" ]]
+then
+    mv vendor/$VENDOR_CONFIG/configs/common.mk vendor/$VENDOR_CONFIG/configs/common_full_phone.mk
+fi
+
 ## Build section
 . build/envsetup.sh
 export USE_CCACHE=1
@@ -81,7 +86,7 @@ export LC_ALL=C
 export WITHOUT_CHECK_API=true
 
 #Brunch olivewood
-lunch $ROMNAME\_olivewood-userdebug 
+lunch $ROMNAME\_olivewood-userdebug | tee lunch_log.txt
 $MAKECOM | tee build_log.txt
 cd .. 
 cd olivewood
