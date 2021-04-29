@@ -64,19 +64,29 @@ rm .repo/local_manifests/local_manifest.xml
 mv roomservice.xml .repo/local_manifests/local_manifest.xml
 repo sync -j$(nproc --all) --force-sync -f -v
 #recheck
-repo sync -j$(nproc --all) --force-sync -f
+repo sync -j$(nproc --all) --force-sync -f -v
 ## match device tree files to rom tree
 mv device/xiaomi/sdm439-common/lineage.dependencies device/xiaomi/sdm439-common/$ROMNAME.dependencies 
-echo "TARGET_KERNEL_CLANG_COMPILE=true" >> device/xiaomi/olivewood/BoardConfig.mk
 mv device/xiaomi/olivewood/lineage_olivewood.mk device/xiaomi/olivewood/$ROMNAME\_olivewood.mk
 sed -i "s|vendor/lineage/config|vendor/$VENDOR_CONFIG/config|" device/xiaomi/olivewood/$ROMNAME\_olivewood.mk
 sed -i "s|lineage|$ROMNAME|" device/xiaomi/olivewood/$ROMNAME\_olivewood.mk
 sed -i "s|lineage|$ROMNAME|" device/xiaomi/olivewood/AndroidProducts.mk
 echo "WITH_GAPPS := true" >> device/xiaomi/olivewood/$ROMNAME\_olivewood.mk
 
+if [[ -d "vendor/$VENDOR_CONFIG/config" ]]
+then
+if [[ ! -f "vendor/$VENDOR_CONFIG/config/common_full_phone.mk" ]]
+then
+    mv vendor/$VENDOR_CONFIG/config/common.mk vendor/$VENDOR_CONFIG/config/common_full_phone.mk
+fi
+fi
+
+if [[ -d "vendor/$VENDOR_CONFIG/configs" ]]
+then
 if [[ ! -f "vendor/$VENDOR_CONFIG/configs/common_full_phone.mk" ]]
 then
     mv vendor/$VENDOR_CONFIG/configs/common.mk vendor/$VENDOR_CONFIG/configs/common_full_phone.mk
+fi
 fi
 
 ## Build section

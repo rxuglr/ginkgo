@@ -2,7 +2,7 @@
 <manifest>
   <remote  name="githubb"
            fetch="https://github.com/"/>
-  <project name="Aghora7/device_xiaomi_olivewood-1" path="device/xiaomi/olivewood" remote="githubb" revision="evo11" />
+  <project name="shield44/device_xiaomi_olivewood-1" path="device/xiaomi/olivewood" remote="githubb" revision="evo11" />
   <project name="Aghora7/device_xiaomi_sdm439-common-1" path="device/xiaomi/sdm439-common" remote="githubb" revision="evo11-wip"/>
   <project name="Aghora7/vendor_xiaomi_olives" path="vendor/xiaomi/olives" remote="githubb" revision="main" />
   <project name="Xiaomi-SDM439-Development/android_kernel_xiaomi_sdm439" path="kernel/xiaomi/sdm439" remote="githubb" revision="a11/master" />
