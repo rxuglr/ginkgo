@@ -1,2 +1,2 @@
 cd ..
-rm -rf olivewood && git clone https://github.com/geek0609/olivewood.git -b simplified && cd olivewood && . run.sh
+rm -rf olivewood && git clone https://github.com/geek0609/olivewood.git -b ginkgo && cd ginkgo && . run.sh
