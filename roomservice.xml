@@ -2,8 +2,8 @@
 <manifest>
   <remote  name="githubb"
            fetch="https://github.com/"/>
-  <project name="shield44/device_xiaomi_olivewood-1" path="device/xiaomi/olivewood" remote="githubb" revision="evo11" />
-  <project name="shield44/device_xiaomi_sdm439-common-1" path="device/xiaomi/sdm439-common" remote="githubb" revision="evo11-wip"/>
-  <project name="Aghora7/vendor_xiaomi_olives" path="vendor/xiaomi/olives" remote="githubb" revision="main" />
-  <project name="Xiaomi-SDM439-Development/android_kernel_xiaomi_sdm439" path="kernel/xiaomi/sdm439" remote="githubb" revision="a11/master" />
+  <project name="trinket-devs/vendor_miuicamera" path="vendor/miuicamera" remote="githubb" revision="11.0" />
+  <project name="trinket-devs/device_xiaomi_ginkgo" path="device/xiaomi/ginkgo" remote="githubb" revision="11.0"/>
+  <project name="trinket-devs/vendor_xiaomi_ginkgo" path="vendor/xiaomi/ginkgo" remote="githubb" revision="11.0" />
+  <project name="madmax7896/kernel_xiaomi_ginkgo" path="kernel/xiaomi/ginkgo" remote="githubb" revision="11.0" />
 </manifest>
