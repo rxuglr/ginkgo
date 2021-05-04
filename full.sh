@@ -36,8 +36,8 @@ printf "
                                                          
                                                            
                                                 
-by Telegram @dsashwin, many thanks to @Iprouteth0 for the scripts and to @Aghora7 for all his trees
-If does not work please contact us at the group link given on the github readme.md 
+by Telegram @dsashwin and @rxuglr, many thanks to @Iprouteth0 for the script idea and for @mg712702 for all his trees
+If does not work please PM me plox
 \n\n\n\n\n\n\n"
 
 #Get values
@@ -102,8 +102,6 @@ fi
 ## Build section
 . build/envsetup.sh
 export USE_CCACHE=1
-export LC_ALL=C
-export WITHOUT_CHECK_API=true
 
 #Brunch ginkgo
 lunch $ROMNAME\_ginkgo-userdebug | tee lunch_log.txt
