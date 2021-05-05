@@ -14,20 +14,30 @@ printf "
  |  _|   | |_| | |  _ <                         
  |_|      \___/  |_| \_\                        
                                                 
-   ___    _       ___  __     __  _____         
-  / _ \  | |     |_ _| \ \   / / | ____|        
- | | | | | |      | |   \ \ / /  |  _|    _____ 
- | |_| | | |___   | |    \ V /   | |___  |_____|
-  \___/  |_____| |___|    \_/    |_____|        
+██████  ███████ ██████  ███    ███ ██                    
+██   ██ ██      ██   ██ ████  ████ ██                    
+██████  █████   ██   ██ ██ ████ ██ ██                    
+██   ██ ██      ██   ██ ██  ██  ██ ██                    
+██   ██ ███████ ██████  ██      ██ ██                    
+                                                         
+                                                         
+███    ██  ██████  ████████ ███████      █████           
+████   ██ ██    ██    ██    ██          ██   ██          
+██ ██  ██ ██    ██    ██    █████        █████           
+██  ██ ██ ██    ██    ██    ██          ██   ██          
+██   ████  ██████     ██    ███████      █████           
+                                                         
+                                                         
+███    ██  ██████  ████████ ███████      █████  ████████ 
+████   ██ ██    ██    ██    ██          ██   ██    ██    
+██ ██  ██ ██    ██    ██    █████        █████     ██    
+██  ██ ██ ██    ██    ██    ██          ██   ██    ██    
+██   ████  ██████     ██    ███████      █████     ██    
+                                                         
+                                                           
                                                 
-         __        __   ___     ___    ____     
-         \ \      / /  / _ \   / _ \  |  _ \    
-  _____   \ \ /\ / /  | | | | | | | | | | | |   
- |_____|   \ V  V /   | |_| | | |_| | | |_| |   
-            \_/\_/     \___/   \___/  |____/    
-                                                
-by Telegram @dsashwin, many thanks to @Iprouteth0 for the scripts and to @Aghora7 for all his trees
-If does not work please contact us at the group link given on the github readme.md 
+by Telegram @dsashwin and @rxuglr, many thanks to @Iprouteth0 for the script idea and for @mg712702 for all his trees
+If does not work please PM me plox
 \n\n\n\n\n\n\n"
 
 #Get values
@@ -39,10 +49,10 @@ read ROMNAME
 echo "Enter ROMs Vendor Directory Name, for example \"potato\" in most cases it should be same as what was used for build, but some roms like Nusantara uses Nusantara as name for vendor folder and nad for building"
 read VENDOR_CONFIG
 echo "Enter ROM build command (including device codename) copy paste from github of the ROM, for example \"mka bacon\""
-echo "However, lunch" $ROMNAME"_olivewood-userdebug will be run."
+echo "However, lunch" $ROMNAME"_ginkgo-userdebug will be run."
 read MAKECOM
 
-PATH_DIR=$ROMNAME"_olivewood"
+PATH_DIR=$ROMNAME"_ginkgo"
 
 cd .. 
 #Make work directory if not present
@@ -53,10 +63,10 @@ cd $PATH_DIR
 repo init --depth=1 -v -u $ROMGIT  
 repo sync -v -f -j$(nproc --all) --force-sync -c --no-clone-bundle --no-tags --optimized-fetch
 cd ..
-cp olivewood/roomservice.xml $PATH_DIR/roomservice.xml 
+cp ginkgo/roomservice.xml $PATH_DIR/roomservice.xml 
 cd $PATH_DIR
 else 
-cp olivewood/roomservice.xml $PATH_DIR/roomservice.xml
+cp ginkgo/roomservice.xml $PATH_DIR/roomservice.xml
 cd $PATH_DIR
 fi
 mkdir .repo/local_manifests
@@ -66,12 +76,12 @@ repo sync -j$(nproc --all) --force-sync -f -v
 #recheck
 repo sync -j$(nproc --all) --force-sync -f -v
 ## match device tree files to rom tree
-mv device/xiaomi/sdm439-common/lineage.dependencies device/xiaomi/sdm439-common/$ROMNAME.dependencies 
-mv device/xiaomi/olivewood/lineage_olivewood.mk device/xiaomi/olivewood/$ROMNAME\_olivewood.mk
-sed -i "s|vendor/lineage/config|vendor/$VENDOR_CONFIG/config|" device/xiaomi/olivewood/$ROMNAME\_olivewood.mk
-sed -i "s|lineage|$ROMNAME|" device/xiaomi/olivewood/$ROMNAME\_olivewood.mk
-sed -i "s|lineage|$ROMNAME|" device/xiaomi/olivewood/AndroidProducts.mk
-echo "WITH_GAPPS := true" >> device/xiaomi/olivewood/$ROMNAME\_olivewood.mk
+mv device/xiaomi/ginkgo/lineage.dependencies device/xiaomi/ginkgo/$ROMNAME.dependencies 
+mv device/xiaomi/ginkgo/lineage_olivewood.mk device/xiaomi/ginkgo/$ROMNAME\_ginkgo.mk
+sed -i "s|vendor/lineage/config|vendor/$VENDOR_CONFIG/config|" device/xiaomi/ginkgo/$ROMNAME\_ginkgo.mk
+sed -i "s|lineage|$ROMNAME|" device/xiaomi/ginkgo/$ROMNAME\_olivewood.mk
+sed -i "s|lineage|$ROMNAME|" device/xiaomi/ginkgo/AndroidProducts.mk
+echo "WITH_GAPPS := true" >> device/xiaomi/ginkgo/$ROMNAME\_olivewood.mk
 
 if [[ -d "vendor/$VENDOR_CONFIG/config" ]]
 then
@@ -92,11 +102,9 @@ fi
 ## Build section
 . build/envsetup.sh
 export USE_CCACHE=1
-export LC_ALL=C
-export WITHOUT_CHECK_API=true
 
-#Brunch olivewood
-lunch $ROMNAME\_olivewood-userdebug | tee lunch_log.txt
+#Brunch ginkgo
+lunch $ROMNAME\_ginkgo-userdebug | tee lunch_log.txt
 $MAKECOM | tee build_log.txt
 cd .. 
 cd olivewood
